@@ -1,21 +1,4 @@
-# schedule
+soccer schedule SPA mobile app
 
-## Project setup
-```
-yarn install
-```
+vue/cli vuex
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
