@@ -1,5 +1,5 @@
 <template>
-  <div class="Home">
+  <div class="home">
     <h1>Schedule</h1>
 
     <p>You are logged in:</p>
