@@ -1,19 +1,27 @@
 <template>
-  <div class="home">
+  <div class="home d-flex flex-column align-items-center">
     <h1>Schedule</h1>
 
     <span>You are logged in:</span>
-    <p>{{currUser}}</p>
+    <span>{{currUser}}</span>
 
-    <button @click="logout">Logout</button>
+    <b-button class="mt-3" size="sm" variant="secondary" @click="logout" >Logout</b-button>
+
+    <b-button class="mt-3" size="lg" variant="secondary">
+      <router-link to="/teams">Teams</router-link>
+    </b-button>
+
+    <b-button class="mt-3" size="lg" variant="secondary">
+      <router-link to="/teams">Stadiums</router-link>
+    </b-button>
 
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import axios from 'axios';
 import firebase from 'firebase/app';
+import bButton from 'bootstrap-vue/es/components/button/button';
 import 'firebase/auth';
 
 export default {
@@ -24,14 +32,8 @@ export default {
       testData: this.$store.state.data,
     };
   },
-  mounted() {
-    axios.get('https://gitcdn.xyz/cdn/drraq/PremierLeague.json/fe4e3e1bc5ea4661b3f93720da7e96befdbf9d7b/data.json') // get clubs info
-      .then((response) => {
-        this.$store.commit('setData', response.data); // set the clubsInfo in the store
-        console.log(this.$store.state.data);
-      })
-    // eslint-disable-next-line
-    .catch(error => alert(error)); // handle error
+  components: {
+    'b-button': bButton,
   },
   methods: {
     logout() {
@@ -49,17 +51,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .home{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  button{
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 3px;
-    padding: 3px;
+  a{
+    color: white,
   }
 </style>
 

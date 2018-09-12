@@ -3,9 +3,9 @@ import Router from 'vue-router';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Home from './components/Home.vue';
+import Teams from './components/Teams.vue';
 // import About from './components/About.vue';
 import Login from './components/Login.vue';
-
 import SignUp from './components/SignUp.vue';
 
 Vue.use(Router);
@@ -26,6 +26,14 @@ const router = new Router({
       path: '/home',
       name: 'Home',
       component: Home,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/teams',
+      name: 'Teams',
+      component: Teams,
       meta: {
         requiresAuth: true,
       },

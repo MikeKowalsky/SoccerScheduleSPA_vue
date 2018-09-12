@@ -1,9 +1,14 @@
 import Vue from 'vue';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import BootstrapVue from 'bootstrap-vue';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+
+Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
 
