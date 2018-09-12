@@ -5,18 +5,18 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    clubsInfo: null,
-    gamesInfo: null,
+    data: null,
+    // gamesInfo: null,
   },
   mutations: {
-    setClubs(state, clubs) {
+    setData(state, data) {
       // eslint-disable-next-line
-      state.clubsInfo = clubs;
+      state.data = data;
     },
-    setGames(state, games) {
-      // eslint-disable-next-line
-      state.gamesInfo = games;
-    },
+    // setGames(state, games) {
+    //   // eslint-disable-next-line
+    //   state.gamesInfo = games;
+    // },
   },
   actions: {
 

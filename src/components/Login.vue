@@ -18,7 +18,7 @@
 <script>
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import Welcome from './Welcome.vue';
+import Welcome from '@/components/Welcome.vue';
 
 export default {
   name: 'Login',
