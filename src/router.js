@@ -4,6 +4,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import Home from './components/Home.vue';
 import Teams from './components/Teams.vue';
+import Stadiums from './components/Stadiums.vue';
 // import About from './components/About.vue';
 import Login from './components/Login.vue';
 import SignUp from './components/SignUp.vue';
@@ -34,6 +35,14 @@ const router = new Router({
       path: '/teams',
       name: 'Teams',
       component: Teams,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/stadiums',
+      name: 'Stadiums',
+      component: Stadiums,
       meta: {
         requiresAuth: true,
       },

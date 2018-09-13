@@ -23,7 +23,7 @@ export default {
     }
     .heroImage::after{
         content: '';
-        background: rgba(0, 0, 0, .4);
+        background: rgba(14, 170, 14, 0.3);
         position: absolute;
         top: 0;
         left: 0;

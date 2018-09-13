@@ -2,13 +2,6 @@
   <div id="app">
     <HeroImage/>
 
-    <!-- <div class="nav">
-      <router-link to="/">schedule</router-link><br>
-      <router-link to="/about">about</router-link><br>
-      <router-link to="/login">login</router-link><br>
-      <router-link to="/signup">signUp</router-link><br>
-    </div> -->
-
     <router-view />
   </div>
 </template>
@@ -25,8 +18,10 @@ export default {
   mounted() {
     axios.get('https://gitcdn.xyz/cdn/drraq/PremierLeague.json/fe4e3e1bc5ea4661b3f93720da7e96befdbf9d7b/data.json') // get clubs info
       .then((response) => {
-        this.$store.commit('setData', response.data); // set the clubsInfo in the store
+        this.$store.commit('setData', response.data); // set the data in the store
+        this.$store.commit('setLoading', false); // set the data in the store
         console.log(this.$store.state.data);
+        console.log(this.$store.state.isLoading);
       })
     // eslint-disable-next-line
     .catch(error => alert(error)); // handle error

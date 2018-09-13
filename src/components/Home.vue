@@ -1,19 +1,34 @@
 <template>
-  <div class="home d-flex flex-column align-items-center">
-    <h1>Schedule</h1>
+  <div class="d-flex flex-column align-items-center justify-content-center home">
 
-    <span>You are logged in:</span>
-    <span>{{currUser}}</span>
+    <div class="d-flex flex-column align-items-center p-2">
+      <h1 class="mt-3 text-danger font-weight-bold display-4">Schedule</h1>
+      <span class="text-body">Hello {{currUser}} !</span>
+      <b-button class="mt-3" size="sm" variant="danger" @click="logout" >Logout</b-button>
+    </div>
 
-    <b-button class="mt-3" size="sm" variant="secondary" @click="logout" >Logout</b-button>
+    <div class="p-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <font-awesome-icon icon="clock" class="display-4 text-danger m-4"/>
+        <b-button class="mr-4" size="lg" variant="danger">
+          <router-link to="/teams">Fixtures</router-link>
+        </b-button>
+      </div>
 
-    <b-button class="mt-3" size="lg" variant="secondary">
-      <router-link to="/teams">Teams</router-link>
-    </b-button>
+      <div class="d-flex align-items-center justify-content-between">
+        <font-awesome-icon icon="users" class="display-4 text-danger m-4"/>
+        <b-button class="mr-4" size="lg" variant="danger">
+          <router-link to="/teams">Teams</router-link>
+        </b-button>
+      </div>
 
-    <b-button class="mt-3" size="lg" variant="secondary">
-      <router-link to="/teams">Stadiums</router-link>
-    </b-button>
+      <div class="d-flex align-items-center justify-content-between">
+        <font-awesome-icon icon="compass" class="display-4 text-danger m-4"/>
+        <b-button class="mr-4" size="lg" variant="danger">
+          <router-link to="/stadiums">Stadiums</router-link>
+        </b-button>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -51,8 +66,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  a{
-    color: white,
+  h1, span {
+    letter-spacing: 3px;
+  }
+  a {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    font-weight: bold;
   }
 </style>
 

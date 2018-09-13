@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     data: null,
+    isLoading: true,
     // gamesInfo: null,
   },
   mutations: {
@@ -13,10 +14,13 @@ export default new Vuex.Store({
       // eslint-disable-next-line
       state.data = data;
     },
-    // setGames(state, games) {
-    //   // eslint-disable-next-line
-    //   state.gamesInfo = games;
-    // },
+    setLoading(state, isLoading) {
+      // eslint-disable-next-line
+      state.isLoading = isLoading;
+    },
+  },
+  getters: {
+    getIsLoading: state => state.isLoading,
   },
   actions: {
 
