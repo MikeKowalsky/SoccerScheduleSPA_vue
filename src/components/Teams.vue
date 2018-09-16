@@ -1,13 +1,10 @@
 <template>
   <div class="teams">
 
-    <p>{{ isLoadingIn }}</p>
-
-    <div v-if="isLoadingIn">
+    <div v-if="getMeIsLoading">
       <p>Loading ...</p>
     </div>
     <div v-else>
-      <p>{{ isLoadingIn }}</p>
       <MyNavBar />
 
       <ul>
@@ -31,20 +28,17 @@ export default {
   data() {
     return {
       isLoadingIn: true,
-      // teamsIn: this.$store.state.data.participating_clubs,
+      teamsIn: null,
     };
   },
-
-  created() {
-    if (!this.teamsIn) {
-      console.log('%c you have no data yet!!', 'background: #222; color: #bada55');
-    }
-  },
   computed: {
-    getIsLoading: () => {
-      console.log(this.$store.getters.getIsLoading);
-      this.isLoadingIn = this.$store.getters.getIsLoading;
-      return this.$store.getters.getIsLoading;
+    getMeIsLoading() {
+      console.log(this.$store.getters.isLoading);
+
+      if (!this.$store.getters.isLoading) {
+        this.teamsIn = this.$store.state.data.participating_clubs;
+      }
+      return this.$store.getters.isLoading;
     },
   },
 };
