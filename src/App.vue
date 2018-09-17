@@ -48,9 +48,11 @@ export default {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
     padding: 0px;
+    width: 100vw;
     height: 100vh;
   }
   #app{
     height: 100vh;
+    width: 100vw;
   }
 </style>

@@ -24,7 +24,7 @@ export default new Vuex.Store({
     isLoading: state => state.isLoading,
   },
   actions: {
-    FETCH_DATA({ state, commit }, { self }) {
+    FETCH_DATA({ commit }, { self }) {
       axios.get('https://gitcdn.xyz/cdn/drraq/PremierLeague.json/fe4e3e1bc5ea4661b3f93720da7e96befdbf9d7b/data.json') // get clubs info
         .then((response) => {
           commit('APPLY_DATA', response.data); // set the data in the store

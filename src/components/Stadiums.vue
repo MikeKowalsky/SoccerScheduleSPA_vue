@@ -1,38 +1,62 @@
 <template>
   <div class="stadiums">
 
-    <ul>
-      <li v-for="(item, index) in stadiumsIn" :key="index">
-        {{ item }}
-      </li>
-    </ul>
+    <div v-if="getMeIsLoading">
+      <p>Loading ...</p>
+    </div>
+    <div v-else>
+      <MyNavBar />
+
+      <div class="stadiums-content">
+        <h4>List of stadiums in this season!</h4>
+        <ol>
+          <li v-for="(item, index) in stadiumsIn" :key="index">
+            {{ item }}
+          </li>
+        </ol>
+      </div>
+    </div>
 
   </div>
 </template>
 
 <script>
+import MyNavBar from '@/components/MyNavBar.vue';
+
 export default {
   name: 'Stadiums',
+  components: {
+    MyNavBar,
+  },
   data() {
     return {
-      stadiumsIn: this.$store.state.data.stadiums,
+      isLoadingIn: true,
+      stadiumsIn: null,
     };
+  },
+  computed: {
+    getMeIsLoading() {
+      if (!this.$store.getters.isLoading) {
+        this.stadiumsIn = this.$store.state.data.stadiums;
+      }
+      return this.$store.getters.isLoading;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
   .stadiums{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: black;
-      margin: 10px;
-      height: 100vh;
-
-      ul{
-        list-style: none;
-        padding-left: 0;
-      }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    height: 100vh;
+  }
+  .stadiums-content{
+    margin: 10px;
+    ol{
+      padding-left: 20px;
+    }
   }
 </style>
