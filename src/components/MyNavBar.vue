@@ -1,35 +1,20 @@
 <template>
   <div class="myNavBar">
-    <!-- <b-button-toolbar aria-label="Toolbar with button groups">
-      <b-button-group> -->
-    <!-- <b-btn> -->
     <router-link to="/home" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="home" class="my-icon text-danger"/>
     </router-link>
-    <!-- </b-btn> -->
-    <!-- <b-btn> -->
     <router-link to="/teams" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="clock" class="my-icon text-danger"/>
     </router-link>
-    <!-- </b-btn>
-    <b-btn> -->
     <router-link to="/teams" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="users" class="my-icon text-danger"/>
     </router-link>
-    <!-- </b-btn>
-    <b-btn> -->
     <router-link to="/stadiums" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="compass" class="my-icon text-danger"/>
     </router-link>
-    <!-- </b-btn>
-    <b-btn> -->
     <router-link to="/stadiums" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="comments" class="my-icon text-danger"/>
     </router-link>
-    <!-- </b-btn> -->
-        <!-- <b-btn><router-link to="/stadiums">Stadiums</router-link></b-btn> -->
-      <!-- </b-button-group>
-    </b-button-toolbar> -->
   </div>
 </template>
 
