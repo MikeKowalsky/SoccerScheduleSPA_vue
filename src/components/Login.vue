@@ -1,16 +1,24 @@
 <template>
-    <div class="login">
-        <div>
-            <Welcome/>
-        </div>
+    <div class="login d-flex flex-column align-items-center justify-content-around">
 
-        <div class="wrapper">
-            <h3>Log in</h3>
-            <input type="text" v-model="email" placeholder="Email">
-            <input type="password" v-model="password" placeholder="Password">
-            <button @click="login"> Login </button>
-            <p>Don't have an account?</p>
-            <p><router-link to="/signup">Create one</router-link></p>
+       <Welcome/>
+
+        <div class="wrapper d-flex flex-column align-items-center">
+            <h2 class="m-1 text-danger font-weight-bold">Log in</h2>
+            <b-form-input v-model="email"
+                class="my-1"
+                type="text"
+                placeholder="Enter your email"></b-form-input>
+            <b-form-input v-model="password"
+                class="my-1"
+                type="text"
+                placeholder="Enter your password"></b-form-input>
+            <b-button
+                class="my-1" size="lg" variant="danger" @click="login">Login</b-button>
+            <p class="mb-0 mt-4 text-danger font-weight-bold">Don't have an account?</p>
+            <h3 class="mb-1 text-danger font-weight-bold">
+                <router-link to="/signup">Click and create one</router-link>
+            </h3>
         </div>
     </div>
 </template>
@@ -19,6 +27,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Welcome from '@/components/Welcome.vue';
+import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
+import bButton from 'bootstrap-vue/es/components/button/button';
 
 export default {
   name: 'Login',
@@ -30,6 +40,8 @@ export default {
   },
   components: {
     Welcome,
+    'b-form-input': bFormInput,
+    'b-button': bButton,
   },
   methods: {
     login() {
@@ -48,52 +60,10 @@ export default {
 
 <style lang="scss" scoped>
     .login{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        color: white;
         margin: 10px;
         height: 100vh;
     }
-    .wrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-      h3{
-        margin: 5px 5px 0px 5px;
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        letter-spacing: 3px;
-        text-shadow: 2px 2px black;
-      }
-      input{
-          border: 1px solid black;
-          border-radius: 10px;
-          margin: 5px;
-          padding: 10px;
-      }
-      button{
-          border: 1px solid black;
-          border-radius: 10px;
-          margin: 5px 5px 20px 5px;
-          padding: 5px;
-          font-size: 1rem;
-          font-weight: bold;
-      }
-      p{
-        margin: 5px 5px 0px 5px;
-        a{
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: red;
-            text-shadow: 2px 2px black;
-            margin: 0;
-            letter-spacing: 3px;
-        }
-      }
+    a{
+        color: #d9534f;
     }
 </style>
