@@ -14,7 +14,7 @@
         type="text"
         placeholder="Enter your password"></b-form-input>
       <b-button
-        class="my-1" size="lg" variant="danger" @click="login">Sign Up</b-button>
+        class="my-1" size="lg" variant="danger" @click="signUp">Sign Up</b-button>
       <p class="mb-0 mt-4 text-danger font-weight-bold">.. or go back to ..</p>
       <h3 class="mb-1 text-danger font-weight-bold">
         <router-link to="/login">and log in</router-link>
