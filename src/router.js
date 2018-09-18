@@ -7,6 +7,7 @@ import Fixtures from './components/Fixtures.vue';
 import FixturesMatchday from './components/FixturesMatchday.vue';
 import Teams from './components/Teams.vue';
 import Stadiums from './components/Stadiums.vue';
+import Chat from './components/Chat.vue';
 // import About from './components/About.vue';
 import Login from './components/Login.vue';
 import SignUp from './components/SignUp.vue';
@@ -65,6 +66,15 @@ const router = new Router({
       path: '/stadiums',
       name: 'Stadiums',
       component: Stadiums,
+      meta: {
+        requiresAuth: true,
+      },
+      props: false,
+    },
+    {
+      path: '/chat',
+      name: 'Chat',
+      component: Chat,
       meta: {
         requiresAuth: true,
       },

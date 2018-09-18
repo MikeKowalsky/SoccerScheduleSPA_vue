@@ -5,12 +5,12 @@
       class="m-2">
       <b-button
         size="sm" variant="danger"
-        :class="{matchdayLink: currentFixture.number_of_own_goals != null}"
+        :class="{matchdayLink: currentFixturesMatchday.number_of_own_goals != null}"
         class="d-flex align-items-center justify-content-around px-4">
         <font-awesome-icon icon="clock" class="text-white m-1"/>
-        <div>
-          <p class="mx-2 my-0">Matchday no {{ currentFixture.matchday }}</p>
-          <p class="mx-2 my-0">Starts {{ currentFixture.fixtures[0].date }}</p>
+        <div class="ml-2">
+          <p class="mx-2 my-0">Matchday no {{ currentFixturesMatchday.matchday }}</p>
+          <p class="mx-2 my-0">Starts on {{ currentFixturesMatchday.fixtures[0].date }}</p>
         </div>
       </b-button>
     </router-link>
@@ -20,13 +20,13 @@
 <script>
 export default {
   name: 'Matchday',
-  props: ['currentFixture'],
+  props: ['currentFixturesMatchday'],
   created() {
-    console.log(this.currentFixture);
+    console.log(this.currentFixturesMatchday);
   },
   methods: {
     getLink() {
-      return `/fixtures-matchday/${this.currentFixture.matchday}`;
+      return `/fixtures-matchday/${this.currentFixturesMatchday.matchday}`;
     },
   },
 };
