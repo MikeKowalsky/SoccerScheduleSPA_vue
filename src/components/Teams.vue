@@ -30,16 +30,20 @@ export default {
   },
   data() {
     return {
-      isLoadingIn: true,
       teamsIn: null,
     };
   },
   computed: {
     getMeIsLoading() {
+      this.getDataFromStore();
+      return this.$store.getters.isLoading;
+    },
+  },
+  methods: {
+    getDataFromStore() {
       if (!this.$store.getters.isLoading) {
         this.teamsIn = this.$store.state.data.participating_clubs;
       }
-      return this.$store.getters.isLoading;
     },
   },
 };

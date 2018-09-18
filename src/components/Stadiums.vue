@@ -30,16 +30,20 @@ export default {
   },
   data() {
     return {
-      isLoadingIn: true,
       stadiumsIn: null,
     };
   },
   computed: {
     getMeIsLoading() {
+      this.getDataFromStore();
+      return this.$store.getters.isLoading;
+    },
+  },
+  methods: {
+    getDataFromStore() {
       if (!this.$store.getters.isLoading) {
         this.stadiumsIn = this.$store.state.data.stadiums;
       }
-      return this.$store.getters.isLoading;
     },
   },
 };
