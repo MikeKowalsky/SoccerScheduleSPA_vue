@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Home from './components/Home.vue';
+import Fixtures from './components/Fixtures.vue';
+import FixturesMatchday from './components/FixturesMatchday.vue';
 import Teams from './components/Teams.vue';
 import Stadiums from './components/Stadiums.vue';
 // import About from './components/About.vue';
@@ -30,6 +32,25 @@ const router = new Router({
       meta: {
         requiresAuth: true,
       },
+      props: false,
+    },
+    {
+      path: '/fixtures',
+      name: 'Fixtures',
+      component: Fixtures,
+      meta: {
+        requiresAuth: true,
+      },
+      props: false,
+    },
+    {
+      path: '/fixtures-matchday/:id',
+      name: 'FixturesMatchday',
+      component: FixturesMatchday,
+      meta: {
+        requiresAuth: true,
+      },
+      props: true,
     },
     {
       path: '/teams',
@@ -38,6 +59,7 @@ const router = new Router({
       meta: {
         requiresAuth: true,
       },
+      props: false,
     },
     {
       path: '/stadiums',
@@ -46,6 +68,7 @@ const router = new Router({
       meta: {
         requiresAuth: true,
       },
+      props: false,
     },
     // {
     //   path: '/about',

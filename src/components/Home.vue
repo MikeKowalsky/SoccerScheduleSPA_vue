@@ -13,7 +13,7 @@
 
     <div class="home-links d-flex flex-column justify-content-around align-items-between">
 
-      <router-link to="/teams">
+      <router-link to="/fixtures">
         <b-button
           size="lg" variant="danger" class="d-flex align-items-center justify-content-around">
           <font-awesome-icon icon="clock" class="display-4 text-white m-1"/>
