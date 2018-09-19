@@ -3,7 +3,7 @@
     <router-link to="/home" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="home" class="my-icon text-danger"/>
     </router-link>
-    <router-link to="/teams" class="d-flex justify-content-center align-items-center">
+    <router-link to="/fixtures" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="clock" class="my-icon text-danger"/>
     </router-link>
     <router-link to="/teams" class="d-flex justify-content-center align-items-center">
@@ -12,7 +12,7 @@
     <router-link to="/stadiums" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="compass" class="my-icon text-danger"/>
     </router-link>
-    <router-link to="/stadiums" class="d-flex justify-content-center align-items-center">
+    <router-link to="/chat" class="d-flex justify-content-center align-items-center">
       <font-awesome-icon icon="comments" class="my-icon text-danger"/>
     </router-link>
   </div>

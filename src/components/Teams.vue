@@ -8,7 +8,7 @@
       <MyNavBar />
 
       <div class="teams-content">
-        <h4>List of teams in this season!</h4>
+        <h4>Teams in this season!</h4>
         <ol>
           <li v-for="(item, index) in teamsIn" :key="index">
             {{ item }}
