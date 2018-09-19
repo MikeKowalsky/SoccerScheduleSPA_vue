@@ -2,14 +2,14 @@
   <div class="matchday">
     <router-link
       :to="{ path: this.getLink() }"
-      class="m-2">
+      class="m-3">
       <b-button
         size="sm" variant="danger"
         :class="{matchdayLink: currentFixturesMatchday.number_of_own_goals != null}"
         class="d-flex align-items-center justify-content-around px-4">
-        <font-awesome-icon icon="clock" class="text-white m-1"/>
+        <font-awesome-icon icon="clock" class="text-white m-1 h3"/>
         <div class="ml-2">
-          <p class="mx-2 my-0">Matchday no {{ currentFixturesMatchday.matchday }}</p>
+          <p class="mx-2 my-0 h4">Matchday no {{ currentFixturesMatchday.matchday }}</p>
           <p class="mx-2 my-0">Starts on {{ currentFixturesMatchday.fixtures[0].date }}</p>
         </div>
       </b-button>
@@ -42,4 +42,6 @@ export default {
   .matchdayLink{
     opacity: .7;
   }
+  // .my-icon{
+  // }
 </style>

@@ -5,6 +5,7 @@ import 'firebase/auth';
 import Home from './components/Home.vue';
 import Fixtures from './components/Fixtures.vue';
 import FixturesMatchday from './components/FixturesMatchday.vue';
+import Fixture from './components/Fixture.vue';
 import Teams from './components/Teams.vue';
 import Stadiums from './components/Stadiums.vue';
 import Chat from './components/Chat.vue';
@@ -48,6 +49,24 @@ const router = new Router({
       path: '/fixtures-matchday/:id',
       name: 'FixturesMatchday',
       component: FixturesMatchday,
+      meta: {
+        requiresAuth: true,
+      },
+      props: true,
+    },
+    // {
+    //   path: '/fixture/:pathToData',
+    //   name: 'Fixture',
+    //   component: Fixture,
+    //   meta: {
+    //     requiresAuth: true,
+    //   },
+    //   props: true,
+    // },
+    {
+      path: '/fixtures-matchday/:id/fixture/:indexData',
+      name: 'Fixture',
+      component: Fixture,
       meta: {
         requiresAuth: true,
       },

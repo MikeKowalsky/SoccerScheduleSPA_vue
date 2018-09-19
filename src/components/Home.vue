@@ -37,7 +37,7 @@
         </b-button>
       </router-link>
 
-      <router-link to="/stadiums">
+      <router-link to="/chat">
         <b-button
           size="lg" variant="danger" class="d-flex align-items-center justify-content-around">
           <font-awesome-icon icon="comments" class="display-4 text-white m-1"/>

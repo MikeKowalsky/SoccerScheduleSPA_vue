@@ -8,30 +8,26 @@
     <MyNavBar />
 
     <div class="m-2">
-        <p class="my-2 h2">Matchday: {{ id }}</p>
+        <p class="my-4 h2 text-danger font-weight-bold text-center">Matchday no {{ id }}</p>
 
         <div
           v-for="(item, index) in fixturesMatchdayIn" :key="index"
-          class="match m-1 p-1">
-          <div>
-            <p class="p-0 m-0">date!: {{ item.date }}</p>
-            <p class="p-0 m-0">{{ item.home_team }} / {{ item.away_team }}</p>
-          </div>
-          <!-- <router-link
-            :to="{ path: this.getLink() }"
+          class="d-flex flex-column align-items-center">
+          <router-link
+            :to="{ path: getLink(index) }"
             class="m-2">
             <b-button
-              size="sm" variant="danger"
-              class="d-flex align-items-center justify-content-around px-4">
-              <font-awesome-icon icon="clock" class="text-white m-1"/>
-              <div>
-                <p class="p-0 m-0">date: {{ item.date }}</p>
-                <p class="p-0 m-0">{{ item.home_team }} / {{ item.away_team }}</p>
+              size="lg" variant="danger"
+              class="singleMatch d-flex align-items-center justify-content-around px-4">
+              <font-awesome-icon icon="info-circle" class="text-white m-1 h2"/>
+              <div class="ml-3">
+                <p class="p-0 m-0 h6">{{ item.home_team }}</p>
+                <p class="p-0 m-0 h6">{{ item.away_team }}</p>
+                <p class="p-0 m-0 h6">date: {{ item.date }}</p>
               </div>
             </b-button>
-          </router-link> -->
+          </router-link>
         </div>
-
 
     </div>
   </div>
@@ -49,7 +45,6 @@ export default {
   data() {
     return {
       fixturesMatchdayIn: null,
-      objectToSend: null,
     };
   },
   computed: {
@@ -62,20 +57,19 @@ export default {
     getDataFromStore() {
       if (!this.$store.getters.isLoading) {
         this.fixturesMatchdayIn = this.$store.state.data.season_fixtures[this.id].fixtures;
-        console.log('fixturesMatchdayIn ---> ');
-        console.log(this.fixturesMatchdayIn);
+        // console.log('fixturesMatchdayIn ---> ');
+        // console.log(this.fixturesMatchdayIn);
       }
     },
-    getLink() {
-      return `/fixture/${this.currentMatch}`;
+    getLink(indexIn) {
+      return `/fixtures-matchday/${this.id}/fixture/${indexIn}`;
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-  .match{
-    background-color: rgba(217, 83, 79, .5);
-    border-radius: 5px;
+  .singleMatch{
+    width: 85vw;
   }
 </style>

@@ -9,7 +9,7 @@
       <MyNavBar />
 
       <div class="fixtures-content d-flex flex-column align-items-center justify-content-around">
-        <p class="my-2 h2">Fixtures!</p>
+        <p class="my-4 h2 text-danger font-weight-bold">Fixtures!</p>
         <div v-for="(item, index) in fixturesIn" :key="index">
           <Matchday :currentFixturesMatchday="item" />
         </div>
