@@ -36,10 +36,11 @@ export default {
   .matchday{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: baseline;
     color: black;
   }
   .matchdayLink{
+    z-index: -100;
     opacity: .7;
   }
   // .my-icon{

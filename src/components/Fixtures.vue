@@ -5,7 +5,7 @@
       <p>Loading ...</p>
     </div>
 
-    <div v-else>
+    <div v-else class="fixtures">
       <MyNavBar />
 
       <div class="fixtures-content d-flex flex-column align-items-center justify-content-around">
@@ -14,6 +14,8 @@
           <Matchday :currentFixturesMatchday="item" />
         </div>
       </div>
+
+      <Arrows />
     </div>
 
   </div>
@@ -21,6 +23,7 @@
 
 <script>
 import MyNavBar from '@/components/MyNavBar.vue';
+import Arrows from '@/components/Arrows.vue';
 import Matchday from '@/components/Matchday.vue';
 
 export default {
@@ -28,6 +31,7 @@ export default {
   components: {
     MyNavBar,
     Matchday,
+    Arrows,
   },
   data() {
     return {
@@ -56,7 +60,9 @@ export default {
     color: black;
     height: 100vh;
   }
-  // .fixtures-content{
-  //   height: calc(100vh - 70px);
-  // }
+  .fixtures-content{
+    padding: 60px 0;
+    height: auto;
+    overflow: scroll;
+  }
 </style>

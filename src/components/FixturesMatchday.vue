@@ -7,7 +7,7 @@
   <div v-else>
     <MyNavBar />
 
-    <div class="m-2">
+    <div class="fixtures-matchday-content m-2">
         <p class="my-4 h2 text-danger font-weight-bold text-center">Matchday no {{ id }}</p>
 
         <div
@@ -30,17 +30,21 @@
         </div>
 
     </div>
+
+    <Arrows />
   </div>
 </template>
 
 <script>
 import MyNavBar from '@/components/MyNavBar.vue';
+import Arrows from '@/components/Arrows.vue';
 
 export default {
   name: 'FixturesMatchday',
   props: ['id'],
   components: {
     MyNavBar,
+    Arrows,
   },
   data() {
     return {
@@ -71,5 +75,10 @@ export default {
 <style lang="scss" scoped>
   .singleMatch{
     width: 85vw;
+  }
+  .fixtures-matchday-content{
+    padding: 60px 0;
+    height: auto;
+    overflow: scroll;
   }
 </style>

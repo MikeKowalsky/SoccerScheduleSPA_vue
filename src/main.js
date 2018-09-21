@@ -5,7 +5,7 @@ import BootstrapVue from 'bootstrap-vue';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUsers, faCompass, faClock, faComments, faHome, faPowerOff, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faCompass, faClock, faComments, faHome, faPowerOff, faInfoCircle, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
 import router from './router';
@@ -13,7 +13,8 @@ import store from './store';
 
 Vue.use(BootstrapVue);
 
-library.add(faUsers, faCompass, faClock, faComments, faHome, faPowerOff, faInfoCircle);
+library.add(faUsers, faCompass, faClock, faComments, faHome);
+library.add(faPowerOff, faInfoCircle, faAngleDoubleLeft, faAngleDoubleRight);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;

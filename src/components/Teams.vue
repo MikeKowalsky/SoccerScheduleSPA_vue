@@ -1,20 +1,29 @@
 <template>
-  <div class="teams">
+  <div class="teams d-flex flex-column align-items-center">
 
     <div v-if="getMeIsLoading">
       <p>Loading ...</p>
     </div>
+
     <div v-else>
       <MyNavBar />
 
-      <div class="teams-content">
-        <h4>Teams in this season!</h4>
-        <ol>
+      <div class="teams-content d-flex flex-column align-items-center">
+        <p class="my-4 h2 text-danger font-weight-bold">Teams in this season!</p>
+        <ul>
           <li v-for="(item, index) in teamsIn" :key="index">
             {{ item }}
           </li>
-        </ol>
+        </ul>
+        <hr>
+        <ul>
+          <li v-for="(item, index) in teamsIn" :key="index">
+            {{ item }}
+          </li>
+        </ul>
       </div>
+
+      <Arrows />
     </div>
 
   </div>
@@ -22,11 +31,13 @@
 
 <script>
 import MyNavBar from '@/components/MyNavBar.vue';
+import Arrows from '@/components/Arrows.vue';
 
 export default {
   name: 'Teams',
   components: {
     MyNavBar,
+    Arrows,
   },
   data() {
     return {
@@ -51,16 +62,16 @@ export default {
 
 <style lang="scss" scoped>
   .teams{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     color: black;
     height: 100vh;
   }
   .teams-content{
-    margin: 10px;
-    ol{
-      padding-left: 20px;
+    padding: 60px 0;
+    height: auto;
+    width: 100vw;
+    overflow: scroll;
+    ul{
+      list-style: none;
     }
   }
 </style>

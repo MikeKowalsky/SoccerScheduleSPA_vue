@@ -1,11 +1,11 @@
 <template>
   <div class="fixture d-flex flex-column">
 
-    <!-- <div v-if="getMeIsLoading">
+    <div v-if="getMeIsLoading">
       <p>Loading ...</p>
-    </div> -->
+    </div>
 
-    <!-- <div v-else> -->
+    <div v-else>
       <MyNavBar />
 
       <div class="info d-flex flex-column align-items-center justify-content-center">
@@ -24,27 +24,43 @@
         <span class="h3 text-danger">{{ currentMatch.attendance }}</span>
       </div>
 
-    <!-- </div> -->
-
+      <Arrows />
+    </div>
   </div>
 </template>
 
 <script>
 import MyNavBar from '@/components/MyNavBar.vue';
+import Arrows from '@/components/Arrows.vue';
 
 export default {
   name: 'Fixture',
   data() {
     return {
-      currentMatch: this.$store.state.data.season_fixtures[this.id].fixtures[this.indexData],
+      currentMatch: null,
     };
   },
   components: {
     MyNavBar,
+    Arrows,
   },
   props: ['id', 'indexData'],
   created() {
-    console.log(`${this.id} / ${this.indexData}`);
+    // console.log(`${this.id} / ${this.indexData}`);
+  },
+  computed: {
+    getMeIsLoading() {
+      this.getDataFromStore();
+      return this.$store.getters.isLoading;
+    },
+  },
+  methods: {
+    getDataFromStore() {
+      if (!this.$store.getters.isLoading) {
+        this.currentMatch =
+          this.$store.state.data.season_fixtures[this.id].fixtures[this.indexData];
+      }
+    },
   },
 };
 </script>
@@ -55,6 +71,8 @@ export default {
     height: 100vh;
   }
   .info{
-      height: calc(100vh - 60px);
+    padding: 60px 0;
+    height: auto;
+    overflow: scroll;
   }
 </style>

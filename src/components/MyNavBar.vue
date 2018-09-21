@@ -19,33 +19,23 @@
 </template>
 
 <script>
-import bButton from 'bootstrap-vue/es/components/button/button';
-import bButtonToolbar from 'bootstrap-vue/es/components/button-toolbar/button-toolbar';
-
 export default {
   name: 'MyNavBar',
-  data() {
-    return {
-    };
-  },
-  components: {
-    'b-button': bButton,
-    'b-button-toolbar': bButtonToolbar,
-  },
 };
 </script>
 
 <style lang="scss" scoped>
   .myNavBar{
     width: 100vw;
+    height: 60px;
+    position: fixed;
+    top: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     grid-template-rows: 60px;
+    // background-color: rgb(220,220,220);
     background-color: rgba(220,220,220, .75);
-
-    a{
-      color: white;
-    }
+    z-index: 100;
   }
   .my-icon{
     font-size: 40px;

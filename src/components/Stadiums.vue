@@ -1,5 +1,5 @@
 <template>
-  <div class="stadiums">
+  <div class="stadiums d-flex flex-column align-items-center">
 
     <div v-if="getMeIsLoading">
       <p>Loading ...</p>
@@ -7,14 +7,22 @@
     <div v-else>
       <MyNavBar />
 
-      <div class="stadiums-content">
-        <h4>Stadiums in this season!</h4>
-        <ol>
+      <div class="stadiums-content d-flex flex-column align-items-center">
+        <p class="my-4 h2 text-danger font-weight-bold">Stadiums in this season!</p>
+        <ul>
           <li v-for="(item, index) in stadiumsIn" :key="index">
             {{ item }}
           </li>
-        </ol>
+        </ul>
+        <hr>
+        <ul>
+          <li v-for="(item, index) in stadiumsIn" :key="index">
+            {{ item }}
+          </li>
+        </ul>
       </div>
+
+      <Arrows />
     </div>
 
   </div>
@@ -22,11 +30,13 @@
 
 <script>
 import MyNavBar from '@/components/MyNavBar.vue';
+import Arrows from '@/components/Arrows.vue';
 
 export default {
   name: 'Stadiums',
   components: {
     MyNavBar,
+    Arrows,
   },
   data() {
     return {
@@ -51,16 +61,16 @@ export default {
 
 <style lang="scss" scoped>
   .stadiums{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     color: black;
     height: 100vh;
   }
   .stadiums-content{
-    margin: 10px;
-    ol{
-      padding-left: 20px;
+    padding: 60px 0;
+    height: auto;
+    width: 100vw;
+    overflow: scroll;
+    ul{
+      list-style: none;
     }
   }
 </style>
