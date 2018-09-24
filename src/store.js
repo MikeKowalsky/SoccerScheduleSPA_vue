@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 Vue.use(Vuex);
 
@@ -8,16 +10,20 @@ export default new Vuex.Store({
   state: {
     data: null,
     isLoading: true,
+    currentUser: null,
   },
   mutations: {
     APPLY_DATA(state, data) {
-      console.log('in APPLY_DATA');
       // eslint-disable-next-line
       state.data = data;
     },
     SET_LOADING(state, isLoading) {
       // eslint-disable-next-line
       state.isLoading = isLoading;
+    },
+    SET_USER(state, user) {
+      // eslint-disable-next-line
+      state.user = user;
     },
   },
   getters: {
@@ -35,6 +41,14 @@ export default new Vuex.Store({
         })
         // eslint-disable-next-line
         .catch(error => console.log(error + " > in fetch/store")); // handle error
+    },
+    GET_USER({ commit }) {
+      // console.log(firebase.auth());
+      // eslint-disable-next-line
+      const currentUser = firebase.auth().currentUser;
+      // eslint-disable-next-line
+      firebase.auth().currentUser ? console.log(currentUser.email) : console.log('nobody logged in');
+      commit('SET_USER', currentUser.email);
     },
   },
 });

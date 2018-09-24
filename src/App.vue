@@ -8,8 +8,9 @@
 
 <script>
 // import axios from 'axios';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
 import HeroImage from './components/HeroImage.vue';
-// import ;
 
 export default {
   name: 'App',
@@ -18,6 +19,11 @@ export default {
   },
   created() {
     this.$store.dispatch('FETCH_DATA', { self: this });
+    this.$store.dispatch('GET_USER');
+
+    // const currentUser = firebase.auth().currentUser;
+    // firebase.auth().currentUser ? console.log(currentUser.email)
+    // : console.log('nobody logged in');
   },
   methods: {
     printData() {
@@ -41,7 +47,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,900');
 
   body{
