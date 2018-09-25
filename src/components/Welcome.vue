@@ -9,7 +9,8 @@
             <!-- <p class="my-0 text-danger font-weight-bold">best soccer schedule app!</p> -->
         </div>
         <div class="d-flex flex-column align-items-center">
-            <img class="logo" src='../assets/premierLeague.png' alt="lion logo">
+            <!-- <img class="logo" src='../assets/premierLeague.png' alt="lion logo"> -->
+            <img class="logo" src='../assets/pl_logo.png' alt="lion logo">
         </div>
     </div>
 </template>

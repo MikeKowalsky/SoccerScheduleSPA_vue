@@ -1,18 +1,25 @@
 <template>
     <div class="login d-flex flex-column align-items-center justify-content-around">
 
-       <Welcome/>
+        <WelcomeXS v-if="keyboard"/>
+        <Welcome v-else/>
 
         <div class="wrapper d-flex flex-column align-items-center">
             <h2 class="m-1 text-danger font-weight-bold">Log in</h2>
-            <b-form-input v-model="email"
+            <b-form-input
+                v-model="email"
                 class="my-1 text-center"
                 type="text"
-                placeholder="Enter your email"></b-form-input>
-            <b-form-input v-model="password"
+                placeholder="Enter your email"
+                @focus.native="keyboard = true"
+                @blur.native="keyboard = false"></b-form-input>
+            <b-form-input
+                v-model="password"
                 class="my-1 text-center"
                 type="text"
-                placeholder="Enter your password"></b-form-input>
+                placeholder="Enter your password"
+                @focus.native="keyboard = true"
+                @blur.native="keyboard = false"></b-form-input>
             <b-button
                 class="my-1" variant="danger" @click="login">Login</b-button>
             <p class="mb-0 mt-2 font-weight-bold">Don't have an account?</p>
@@ -27,6 +34,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Welcome from '@/components/Welcome.vue';
+import WelcomeXS from '@/components/WelcomeXS.vue';
 import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
 import bButton from 'bootstrap-vue/es/components/button/button';
 
@@ -36,10 +44,12 @@ export default {
     return {
       email: '',
       password: '',
+      keyboard: false,
     };
   },
   components: {
     Welcome,
+    WelcomeXS,
     'b-form-input': bFormInput,
     'b-button': bButton,
   },
