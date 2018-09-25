@@ -5,10 +5,12 @@
     <div class="chat-content d-flex flex-column align-items-center">
       <p class="my-4 h2 text-danger font-weight-bold">Chat</p>
 
-      <div v-if="isLoading">
-        <div v-for="(item, key) in messages" :key="key" class="post">
+      <div v-if="isLoading" class="posts-container d-flex flex-column align-items-start">
+        <div
+          v-for="(item, key) in messages" :key="key"
+          class="post" :class="{myPosts: item.name == user}">
           <span>{{item.name}}</span>
-          <p>{{item.body}}</p>
+          <p class="">{{item.body}}</p>
           <span>{{item.date}}</span>
         </div>
       </div>
@@ -20,7 +22,10 @@
           placeholder="Enter your message"></b-form-input>
       </div>
 
-      <button @click="writeNewPost()">Send a post</button>
+      <b-button
+        class="my-2" size="lg" variant="danger" @click="writeNewPost">
+        Send
+      </b-button>
     </div>
 
     <Arrows />
@@ -34,7 +39,7 @@ import 'firebase/database';
 import MyNavBar from '@/components/MyNavBar.vue';
 import Arrows from '@/components/Arrows.vue';
 import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
-// import bButton from 'bootstrap-vue/es/components/button/button';
+import bButton from 'bootstrap-vue/es/components/button/button';
 
 export default {
   name: 'Chat',
@@ -42,6 +47,7 @@ export default {
     MyNavBar,
     Arrows,
     'b-form-input': bFormInput,
+    'b-button': bButton,
   },
   data() {
     return {
@@ -51,7 +57,7 @@ export default {
       isLoading: true,
     };
   },
-  created() {
+  mounted() {
     this.user = this.$store.state.user;
     this.getPosts();
     this.isLoadingInt = false;
@@ -61,7 +67,7 @@ export default {
       const post = {
         name: this.user,
         body: this.messageInput,
-        date: new Date(),
+        date: new Date().toLocaleString('en-US'),
       };
 
       const newPostKey = firebase.database().ref().child('mainChat').push().key;
@@ -70,12 +76,12 @@ export default {
       updates[newPostKey] = post;
 
       firebase.database().ref('mainChat').update(updates);
+      this.messageInput = null;
       this.getPosts();
     },
     getPosts() {
       firebase.database().ref('mainChat').on('value', (data) => {
         this.messages = data.val();
-        console.log(this.messages);
       });
     },
   },
@@ -87,7 +93,10 @@ export default {
     padding: 60px 0;
     height: auto;
     width: 100vw;
-    overflow: scroll;
+    overflow-y: scroll;
+  }
+  .posts-container{
+    width: 90vw;
   }
   .input{
     width: 80%;
@@ -95,13 +104,20 @@ export default {
   .post{
     border: 1px solid red;
     border-radius: 10px;
-    padding: 10px;
+    background-color: rgba(211, 211, 211, .7);
+    padding: 0 10px;
     margin-top: 10px;
+    text-align: left;
     p{
       margin: 0px;
+      font-size: 1.1em;
     }
     span{
       font-size: .7em;
     }
+  }
+  .myPosts{
+    text-align: right;
+    align-self: flex-end;
   }
 </style>
