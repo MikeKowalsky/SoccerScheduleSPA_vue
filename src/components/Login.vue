@@ -16,15 +16,15 @@
             <b-form-input
                 v-model="password"
                 class="my-1 text-center"
-                type="text"
+                type="password"
                 placeholder="Enter your password"
                 @focus.native="keyboard = true"
                 @blur.native="keyboard = false"></b-form-input>
             <b-button
-                class="my-1" variant="danger" @click="login">Login</b-button>
+                class="my-1" size="lg" variant="danger" @click="login">Login</b-button>
             <p class="mb-0 mt-2 font-weight-bold">Don't have an account?</p>
             <h4 class="mb-1 font-weight-bold">
-                <router-link to="/signup">Click and create one</router-link>
+                <router-link to="/signup">Click here and create one</router-link>
             </h4>
         </div>
     </div>
@@ -73,8 +73,8 @@ export default {
         margin: 10px;
         height: 100vh;
     }
-    a{
-        color: black;
+    a, p{
+        color: #3D195B;
         // color: #d9534f;
     }
 </style>

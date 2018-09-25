@@ -14,12 +14,12 @@
         @blur.native="keyboard = false"></b-form-input>
       <b-form-input v-model="password"
         class="my-1 text-center"
-        type="text"
+        type="password"
         placeholder="Enter your password"
         @focus.native="keyboard = true"
         @blur.native="keyboard = false"></b-form-input>
       <b-button
-        class="my-1" variant="danger" @click="signUp">Sign Up</b-button>
+        class="my-1" size="lg" variant="danger" @click="signUp">Sign Up</b-button>
       <p class="mb-0 mt-2 font-weight-bold">.. or go back to ..</p>
       <h4 class="mb-1 font-weight-bold">
         <router-link to="/login">and log in</router-link>
@@ -70,7 +70,7 @@ export default {
     margin: 10px;
     height: 100vh;
   }
-  a{
-    color: black;
+  a, p{
+    color: #3D195B;
   }
 </style>
