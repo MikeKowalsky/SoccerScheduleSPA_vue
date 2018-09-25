@@ -7,7 +7,7 @@
         <font-awesome-icon icon="power-off" class="text-white m-1"/>
       </b-button>
       <h1 class="text-danger font-weight-bold display-4">Schedule</h1>
-      <span class="text-body">Hello {{currUser}} !</span>
+      <span class="text-dark font-weight-bold">Hello {{currUser}} !</span>
       <!-- <b-button class="mt-3" size="sm" variant="danger" @click="logout" >Logout</b-button> -->
     </div>
 
@@ -97,6 +97,9 @@ export default {
   }
   h1, span {
     letter-spacing: 3px;
+  }
+  span{
+    font-size: 1em;
   }
   a button{
     text-transform: uppercase;

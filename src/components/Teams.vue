@@ -10,17 +10,15 @@
 
       <div class="teams-content d-flex flex-column align-items-center">
         <p class="my-4 h2 text-danger font-weight-bold">Teams in this season!</p>
-        <ul>
-          <li v-for="(item, index) in teamsIn" :key="index">
-            {{ item }}
-          </li>
-        </ul>
-        <hr>
-        <ul>
-          <li v-for="(item, index) in teamsIn" :key="index">
-            {{ item }}
-          </li>
-        </ul>
+        <div>
+          <div v-for="(item, index) in teams" :key="index">
+            <p>{{ item }} {{ teamCodes[index] }} </p>
+            <!-- <img src="../assets/team-logos/ARS.svg"> -->
+            <!-- <img :src="getLink(index)"> -->
+            <!-- <img :src="'../assets/team-logos/' + teamCodes[index] + '.svg'"> -->
+            <img :src="teamImgLinks[index]" />
+          </div>
+        </div>
       </div>
 
       <Arrows />
@@ -41,7 +39,9 @@ export default {
   },
   data() {
     return {
-      teamsIn: null,
+      teams: null,
+      teamCodes: null,
+      teamImgLinks: [],
     };
   },
   computed: {
@@ -53,16 +53,31 @@ export default {
   methods: {
     getDataFromStore() {
       if (!this.$store.getters.isLoading) {
-        this.teamsIn = this.$store.state.data.participating_clubs;
+        this.teams = this.$store.state.data.participating_clubs;
+        this.teamCodes = this.$store.state.data.teams_codes;
+        console.log(this.teams);
+        console.log(this.teamCodes);
+        this.createTeamImgLinks();
+        console.log(this.teamImgLinks);
       }
     },
+    createTeamImgLinks() {
+      this.teamCodes.forEach((code, index) => {
+        // console.log(`../assets/team-logos/${code}.svg`);
+        this.teamImgLinks.push(`../assets/team-logos/${code}.svg`);
+      });
+    },
+    // getLink(teamCodeIndex) {
+    //   console.log(`../assets/team-logos/${this.teamCodes[teamCodeIndex]}.svg`);
+    //   return `../assets/team-logos/${this.teamCodes[teamCodeIndex]}.svg`;
+    // },
   },
 };
 </script>
 
 <style lang="scss" scoped>
   .teams{
-    color: black;
+    color: #3D195B;
     height: 100vh;
   }
   .teams-content{
@@ -70,8 +85,5 @@ export default {
     height: auto;
     width: 100vw;
     overflow: scroll;
-    ul{
-      list-style: none;
-    }
   }
 </style>
