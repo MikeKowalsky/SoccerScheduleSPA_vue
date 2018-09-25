@@ -6,19 +6,19 @@
     <div class="wrapper d-flex flex-column align-items-center">
       <h2 class="m-1 text-danger font-weight-bold">Create new account</h2>
       <b-form-input v-model="email"
-        class="my-1"
+        class="my-1 text-center"
         type="text"
         placeholder="Enter your email"></b-form-input>
       <b-form-input v-model="password"
-        class="my-1"
+        class="my-1 text-center"
         type="text"
         placeholder="Enter your password"></b-form-input>
       <b-button
-        class="my-1" size="lg" variant="danger" @click="signUp">Sign Up</b-button>
-      <p class="mb-0 mt-4 text-danger font-weight-bold">.. or go back to ..</p>
-      <h3 class="mb-1 text-danger font-weight-bold">
+        class="my-1" variant="danger" @click="signUp">Sign Up</b-button>
+      <p class="mb-0 mt-2 font-weight-bold">.. or go back to ..</p>
+      <h4 class="mb-1 font-weight-bold">
         <router-link to="/login">and log in</router-link>
-      </h3>
+      </h4>
     </div>
 
   </div>
@@ -63,6 +63,6 @@ export default {
     height: 100vh;
   }
   a{
-    color: #d9534f;
+    color: black;
   }
 </style>

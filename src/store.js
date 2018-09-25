@@ -47,8 +47,12 @@ export default new Vuex.Store({
       // eslint-disable-next-line
       const currentUser = firebase.auth().currentUser;
       // eslint-disable-next-line
-      firebase.auth().currentUser ? console.log(currentUser.email) : console.log('nobody logged in');
-      commit('SET_USER', currentUser.email);
+      if(firebase.auth().currentUser){
+        console.log(currentUser.email);
+        commit('SET_USER', currentUser.email);
+      } else {
+        console.log('nobody logged in');
+      }
     },
   },
 });
