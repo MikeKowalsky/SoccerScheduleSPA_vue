@@ -17,6 +17,7 @@ export default {
   created() {
     this.$store.dispatch('FETCH_DATA', { self: this });
     this.$store.dispatch('GET_USER');
+    this.$store.dispatch('SET_SET_STADIUMS');
   },
   methods: {
     printData() {

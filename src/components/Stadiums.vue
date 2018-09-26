@@ -40,7 +40,8 @@ export default {
   },
   data() {
     return {
-      stadiumsIn: null,
+      stadiumsNames: null,
+      stadiumsFrames: null,
     };
   },
   computed: {
@@ -52,7 +53,8 @@ export default {
   methods: {
     getDataFromStore() {
       if (!this.$store.getters.isLoading) {
-        this.stadiumsIn = this.$store.state.data.stadiums;
+        this.stadiumsNames = this.$store.state.data.stadiums;
+        this.stadiumsFrames = this.$store.state.stadiums;
       }
     },
   },

@@ -7,6 +7,7 @@ import Fixtures from './components/Fixtures.vue';
 import FixturesMatchday from './components/FixturesMatchday.vue';
 import Fixture from './components/Fixture.vue';
 import Teams from './components/Teams.vue';
+import Team from './components/Team.vue';
 import Stadiums from './components/Stadiums.vue';
 import Chat from './components/Chat.vue';
 import Login from './components/Login.vue';
@@ -53,15 +54,6 @@ const router = new Router({
       },
       props: true,
     },
-    // {
-    //   path: '/fixture/:pathToData',
-    //   name: 'Fixture',
-    //   component: Fixture,
-    //   meta: {
-    //     requiresAuth: true,
-    //   },
-    //   props: true,
-    // },
     {
       path: '/fixtures-matchday/:id/fixture/:indexData',
       name: 'Fixture',
@@ -79,6 +71,15 @@ const router = new Router({
         requiresAuth: true,
       },
       props: false,
+    },
+    {
+      path: '/team/:id',
+      name: 'Team',
+      component: Team,
+      meta: {
+        requiresAuth: true,
+      },
+      props: true,
     },
     {
       path: '/stadiums',

@@ -9,13 +9,16 @@
       <MyNavBar />
 
       <div class="teams-content d-flex flex-column align-items-center">
-        <p class="my-4 h2 text-danger font-weight-bold">Teams list</p>
+        <p class="mt-4 h2 text-danger font-weight-bold">Teams list</p>
         <div>
           <div v-for="(item, index) in teams" :key="index"
-            class="d-flex flex-column align-items-center my-4">
-            <p class="text-dark font-weight-bold h4">{{ item }}</p>
-            <img :src="require(`../assets/team-logos/${teamCodes[index]}.svg`)" />
-            <!-- <img :src="require('../assets/team-logos/' + teamCodes[index] + '.svg')" /> -->
+            class="text-center my-4">
+            <router-link
+              :to="{ path: `/team/${index}` }">
+              <p class="text-dark text-center font-weight-bold h4 mt-4">{{ item }}</p>
+              <img :src="require(`../assets/team-logos/${teamCodes[index]}.svg`)" />
+              <!-- <img :src="require('../assets/team-logos/' + teamCodes[index] + '.svg')" /> -->
+            </router-link>
           </div>
         </div>
       </div>
