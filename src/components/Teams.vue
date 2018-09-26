@@ -9,16 +9,13 @@
       <MyNavBar />
 
       <div class="teams-content d-flex flex-column align-items-center">
-        <p class="my-4 h2 text-danger font-weight-bold">Teams in this season!</p>
+        <p class="my-4 h2 text-danger font-weight-bold">Teams list</p>
         <div>
-          <div v-for="(item, index) in teams" :key="index">
-            <p>{{ item }} {{ teamCodes[index] }} </p>
-            <!-- <img src="../assets/team-logos/ARS.svg"> -->
-            <!-- <img :src="getLink(index)"> -->
-            <!-- <img :src="'../assets/team-logos/' + teamCodes[index] + '.svg'"> -->
-            <img :src="require('../assets/team-logos/' + teamCodes[index] + '.svg')" />
-            <!-- <img :src="require(teamImgLinks[index])" /> -->
-            <!-- <img :src="src" /> -->
+          <div v-for="(item, index) in teams" :key="index"
+            class="d-flex flex-column align-items-center my-4">
+            <p class="text-dark font-weight-bold h4">{{ item }}</p>
+            <img :src="require(`../assets/team-logos/${teamCodes[index]}.svg`)" />
+            <!-- <img :src="require('../assets/team-logos/' + teamCodes[index] + '.svg')" /> -->
           </div>
         </div>
       </div>
@@ -43,8 +40,6 @@ export default {
     return {
       teams: null,
       teamCodes: null,
-      teamImgLinks: [],
-      src: '../assets/team-logos/ARS.svg',
     };
   },
   computed: {
@@ -58,25 +53,8 @@ export default {
       if (!this.$store.getters.isLoading) {
         this.teams = this.$store.state.data.participating_clubs;
         this.teamCodes = this.$store.state.data.teams_codes;
-        console.log(this.teams);
-        console.log(this.teamCodes);
-        // this.createTeamImgLinks();
       }
     },
-    // createTeamImgLinks() {
-    //   this.teamCodes.forEach((code, index) => {
-    //     // console.log(`../assets/team-logos/${code}.svg`);
-    //     this.teamImgLinks.push(`../assets/team-logos/${code}.svg`);
-    //     // this.teamImgLinks.push('../assets/team-logos/' + code + '.svg');
-    //     // this.teamImgLinks.push('./pl_logo.png');
-    //   });
-    //   // debugger
-    //   console.log(this.teamImgLinks);
-    // },
-    // getLink(teamCodeIndex) {
-    //   console.log(`../assets/team-logos/${this.teamCodes[teamCodeIndex]}.svg`);
-    //   return `../assets/team-logos/${this.teamCodes[teamCodeIndex]}.svg`;
-    // },
   },
 };
 </script>
@@ -93,7 +71,7 @@ export default {
     overflow: scroll;
   }
   img{
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
   }
 </style>
