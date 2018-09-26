@@ -16,7 +16,9 @@
             <!-- <img src="../assets/team-logos/ARS.svg"> -->
             <!-- <img :src="getLink(index)"> -->
             <!-- <img :src="'../assets/team-logos/' + teamCodes[index] + '.svg'"> -->
-            <img :src="teamImgLinks[index]" />
+            <img :src="require('../assets/team-logos/' + teamCodes[index] + '.svg')" />
+            <!-- <img :src="require(teamImgLinks[index])" /> -->
+            <!-- <img :src="src" /> -->
           </div>
         </div>
       </div>
@@ -42,6 +44,7 @@ export default {
       teams: null,
       teamCodes: null,
       teamImgLinks: [],
+      src: '../assets/team-logos/ARS.svg',
     };
   },
   computed: {
@@ -57,16 +60,19 @@ export default {
         this.teamCodes = this.$store.state.data.teams_codes;
         console.log(this.teams);
         console.log(this.teamCodes);
-        this.createTeamImgLinks();
-        console.log(this.teamImgLinks);
+        // this.createTeamImgLinks();
       }
     },
-    createTeamImgLinks() {
-      this.teamCodes.forEach((code, index) => {
-        // console.log(`../assets/team-logos/${code}.svg`);
-        this.teamImgLinks.push(`../assets/team-logos/${code}.svg`);
-      });
-    },
+    // createTeamImgLinks() {
+    //   this.teamCodes.forEach((code, index) => {
+    //     // console.log(`../assets/team-logos/${code}.svg`);
+    //     this.teamImgLinks.push(`../assets/team-logos/${code}.svg`);
+    //     // this.teamImgLinks.push('../assets/team-logos/' + code + '.svg');
+    //     // this.teamImgLinks.push('./pl_logo.png');
+    //   });
+    //   // debugger
+    //   console.log(this.teamImgLinks);
+    // },
     // getLink(teamCodeIndex) {
     //   console.log(`../assets/team-logos/${this.teamCodes[teamCodeIndex]}.svg`);
     //   return `../assets/team-logos/${this.teamCodes[teamCodeIndex]}.svg`;
@@ -85,5 +91,9 @@ export default {
     height: auto;
     width: 100vw;
     overflow: scroll;
+  }
+  img{
+    height: 100px;
+    width: 100px;
   }
 </style>
