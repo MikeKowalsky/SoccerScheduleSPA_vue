@@ -1,0 +1,9 @@
+# Redirects from what the browser requests to what we serve
+# take me form /about to / (root folder)
+/fixtures /
+/fixtures-matchday /
+/teams /
+/team /
+/chat /
+/login /
+/signUp /
