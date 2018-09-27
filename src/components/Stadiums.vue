@@ -9,13 +9,13 @@
 
 <!-- '<iframe src="https://SUPERlongLINK" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>', -->
       <div class="stadiums-content d-flex flex-column align-items-center">
-        <p class="my-4 h2 text-danger text-center font-weight-bold">Stadiums list</p>
+        <p class="mt-4 h2 text-danger text-center font-weight-bold">Stadiums list</p>
 
         <div class="container">
           <div v-for="(item, index) in stadiumsNames" :key="index"
             class="text-center">
             <p class="m-0 mt-4 text-dark font-weight-bold">{{ clubNames[index] }}</p>
-
+            <Map :iframeLink="stadiumsFrames[index]" />
             <!-- <b-btn @click="showCollapse = !showCollapse"
                   :class="showCollapse ? 'collapsed' : null"
                   aria-controls="collapse4"
@@ -36,14 +36,16 @@
             </b-collapse> -->
 
             <!-- <b-btn v-b-toggle.collapse1 variant="primary">Toggle Collapse</b-btn> -->
-            <b-btn v-b-toggle.collapse1 variant="danger" class="my-2">{{ item }}</b-btn>
-            <b-collapse id="collapse1" class="mt-2">
+            <!-- <b-btn v-b-toggle.collapse1 variant="danger" class="my-2">{{ item }}</b-btn> -->
+
+
+            <!-- <b-collapse id="collapse1" class="mt-2">
               <b-card>
                 <iframe
                   :src="stadiumsFrames[index]" width="250" height="250" frameborder="0"
                   style="border:0" allowfullscreen class="card-text"></iframe>
               </b-card>
-            </b-collapse>
+            </b-collapse> -->
 
           </div>
         </div>
@@ -59,12 +61,14 @@
 <script>
 import MyNavBar from '@/components/MyNavBar.vue';
 import Arrows from '@/components/Arrows.vue';
+import Map from '@/components/Map.vue';
 
 export default {
   name: 'Stadiums',
   components: {
     MyNavBar,
     Arrows,
+    Map,
   },
   data() {
     return {
