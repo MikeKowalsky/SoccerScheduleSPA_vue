@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     getLink() {
-      return `/fixtures-matchday/${this.currentFixturesMatchday.matchday}`;
+      return `/fixtures-matchday/${this.currentFixturesMatchday.matchday - 1}`;
     },
   },
 };
@@ -43,6 +43,4 @@ export default {
     z-index: -100;
     opacity: .7;
   }
-  // .my-icon{
-  // }
 </style>

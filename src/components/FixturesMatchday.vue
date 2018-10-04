@@ -8,7 +8,7 @@
     <MyNavBar />
 
     <div class="fixtures-matchday-content m-2">
-        <p class="my-4 h2 text-danger font-weight-bold text-center">Matchday no {{ id }}</p>
+        <p class="my-4 h2 text-danger font-weight-bold text-center">Matchday no {{ matchdayNo }}</p>
 
         <div
           v-for="(item, index) in fixturesMatchdayIn" :key="index"
@@ -49,6 +49,7 @@ export default {
   data() {
     return {
       fixturesMatchdayIn: null,
+      matchdayNo: parseInt(this.id, 10) + 1,
     };
   },
   computed: {
@@ -62,7 +63,7 @@ export default {
       if (!this.$store.getters.isLoading) {
         this.fixturesMatchdayIn = this.$store.state.data.season_fixtures[this.id].fixtures;
         // console.log('fixturesMatchdayIn ---> ');
-        // console.log(this.fixturesMatchdayIn);
+        console.log(this.fixturesMatchdayIn);
       }
     },
     getLink(indexIn) {
