@@ -2,6 +2,8 @@ import Vue from 'vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import BootstrapVue from 'bootstrap-vue';
+// import Autoscroll from 'vue-autoscroll';
+import VueChatScroll from 'vue-chat-scroll';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -11,7 +13,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+// Vue.use(Autoscroll);
+Vue.use(VueChatScroll)
 Vue.use(BootstrapVue);
+
 
 library.add(faUsers, faCompass, faClock, faComments, faHome);
 library.add(faPowerOff, faInfoCircle, faAngleDoubleLeft, faAngleDoubleRight);

@@ -5,11 +5,12 @@
     <div class="chat-content d-flex flex-column align-items-center">
       <p class="my-4 h2 text-danger font-weight-bold">Chat</p>
 
-      <div v-if="!isLoading"
+      <div v-if="!isLoading" v-chat-scroll
         class="posts-container d-flex flex-column align-items-start"
         :class="{postsWithKeyboard: keyboard}" id="here">
         <div
-          v-for="(item, key) in messages" :key="key"
+          v-for="(item, index) in messages" :key="index"
+          :id="index"
           class="post" :class="{myPosts: item.name == user}">
           <span>{{item.name}}</span>
           <p class="msgBody">{{item.body}}</p>
@@ -49,9 +50,13 @@ import MyNavBar from '@/components/MyNavBar.vue';
 import Arrows from '@/components/Arrows.vue';
 import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
 import bButton from 'bootstrap-vue/es/components/button/button';
+// import { autoscroll } from 'vue-autoscroll';
 
 export default {
   name: 'Chat',
+  // directives: {
+  //   autoscroll,
+  // },
   components: {
     MyNavBar,
     Arrows,
@@ -65,13 +70,25 @@ export default {
       messages: null,
       isLoading: true,
       keyboard: false,
+      counter: 0,
     };
   },
+  // updated() {
+  //   const div = document.getElementById('here2');
+  //   console.log(div);
+  //   console.log(div.scrollHeight);
+  //   div.scrollTop = div.scrollHeight - div.clientHeight;
+  // },
   updated() {
-    const div = document.getElementById('here');
-    console.log(div);
-    console.log(div.scrollHeight);
-    div.scrollTop = div.scrollHeight - div.clientHeight;
+    const objectSize = Object.keys(this.messages).length;
+    console.log(objectSize);
+
+    // var size = Object.keys(myObj).length;
+    // console.log(this.messages.length);
+    const lastP = document.getElementById(objectSize - 1);
+    console.log(lastP);
+    // console.log(div.scrollHeight);
+    // div.scrollTop = div.scrollHeight - div.clientHeight;
   },
   mounted() {
     this.user = this.$store.state.user;
@@ -94,18 +111,18 @@ export default {
       firebase.database().ref('mainChat').update(updates);
       this.messageInput = null;
       this.getPosts();
-      this.scrollThisShit();
+      // this.scrollThisShit();
     },
     getPosts() {
       firebase.database().ref('mainChat').on('value', (data) => {
         this.messages = data.val();
       });
     },
-    scrollThisShit() {
-      const div = document.getElementById('here');
-      console.log(div);
-      div.scrollTop = div.scrollHeight - div.clientHeight;
-    },
+    // scrollThisShit() {
+    //   const div = document.getElementById('here');
+    //   console.log(div);
+    //   div.scrollTop = div.scrollHeight - div.clientHeight;
+    // },
   },
 };
 </script>

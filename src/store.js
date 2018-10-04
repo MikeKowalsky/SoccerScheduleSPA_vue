@@ -15,6 +15,7 @@ export default new Vuex.Store({
   },
   mutations: {
     APPLY_DATA(state, data) {
+      console.log(data);
       // eslint-disable-next-line
       state.data = data;
     },
@@ -36,6 +37,19 @@ export default new Vuex.Store({
   },
   actions: {
     FETCH_DATA({ commit }, { self }) {
+    //   fetch('public/data.json')
+    //     .then(response => response.json())
+    //     .then((dataFromFetch) => {
+    //       commit('APPLY_DATA', dataFromFetch); // set the data in the store
+    //       commit('SET_LOADING', false); // set isLoading to false in the store
+    //       // console.log(state.data);
+    //       // console.log(`isLoading: ${state.isLoading}`);
+    //       self.printData();
+    //     })
+    //   // eslint-disable-next-line
+    //   .catch(error => console.log(error + ' > in fetch/store')); // handle error
+    // },
+      // axios.get('public/data.json') // get clubs info
       axios.get('https://gitcdn.xyz/cdn/drraq/PremierLeague.json/2198ff3720178643ef8051df1be9addc949fd097/data.json') // get clubs info
       // axios.get('https://gitcdn.xyz/cdn/drraq/PremierLeague.json/fe4e3e1bc5ea4661b3f93720da7e96befdbf9d7b/data.json') // get clubs info
         .then((response) => {
