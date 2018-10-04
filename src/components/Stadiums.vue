@@ -67,7 +67,6 @@ export default {
       }
     },
     setShowMap(teamCode) {
-      console.log(teamCode);
       if (this.showMap === teamCode) {
         this.showMap = false;
       } else {
