@@ -18,12 +18,17 @@
             class="m-2">
             <b-button
               size="lg" variant="danger"
-              class="singleMatch d-flex align-items-center justify-content-around px-4">
+              class="singleMatch d-flex align-items-center justify-content-around px-4"
+              :class="{played: item.full_time_score != null}">
               <font-awesome-icon icon="info-circle" class="text-white m-1 h2"/>
               <div class="ml-3">
-                <p class="p-0 m-0 h6">{{ item.home_team }}</p>
-                <p class="p-0 m-0 h6">{{ item.away_team }}</p>
-                <p class="p-0 m-0 h6">date: {{ item.date }}</p>
+                <p class="p-0 m-0 h5">{{ item.home_team }}</p>
+                <p class="p-0 m-0 h5 dash"> - </p>
+                <p class="p-0 m-0 h5">{{ item.away_team }}</p>
+                <p class="p-0 m-0 h6 date">Date: {{ item.date }}</p>
+                <p class="p-0 m-0 h6"
+                  v-if="item.full_time_score != null">
+                  Result: {{ item.full_time_score }} ( {{ item.half_time_score }} )</p>
               </div>
             </b-button>
           </router-link>
@@ -77,9 +82,18 @@ export default {
   .singleMatch{
     width: 85vw;
   }
+  .played{
+    opacity: .8;
+  }
   .fixtures-matchday-content{
     padding: 60px 0;
     height: auto;
     overflow: scroll;
+  }
+  .dash{
+    line-height: 0.5em;
+  }
+  .date{
+    margin-top: 10px !important;
   }
 </style>
