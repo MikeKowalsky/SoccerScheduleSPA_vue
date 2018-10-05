@@ -8,6 +8,7 @@ import FixturesMatchday from './components/FixturesMatchday.vue';
 import Fixture from './components/Fixture.vue';
 import Teams from './components/Teams.vue';
 import Team from './components/Team.vue';
+import Players from './components/Players.vue';
 import Stadiums from './components/Stadiums.vue';
 import Chat from './components/Chat.vue';
 import Login from './components/Login.vue';
@@ -76,6 +77,15 @@ const router = new Router({
       path: '/team/:id',
       name: 'Team',
       component: Team,
+      meta: {
+        requiresAuth: true,
+      },
+      props: true,
+    },
+    {
+      path: '/players/:id',
+      name: 'Players',
+      component: Players,
       meta: {
         requiresAuth: true,
       },

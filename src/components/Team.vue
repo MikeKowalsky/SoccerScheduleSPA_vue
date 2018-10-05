@@ -9,7 +9,13 @@
       <MyNavBar />
 
       <div class="team-content d-flex flex-column align-items-center">
-        <p class="my-4 h2 text-dark font-weight-bold"> {{ currentTeamName }}</p>
+        <div class="d-flex">
+          <p class="my-4 h2 text-dark font-weight-bold"> {{ currentTeamName }}</p>
+          <router-link :to="{ path: `/players/${currentTeamCode}` }">
+            <p class="mt-5 ml-4 text-danger font-weight-bold">
+              Players</p>
+          </router-link>
+        </div>
 
         <p class="h4 text-dark font-weight-bold">Previous matches</p>
         <div class="container mb-4">
@@ -109,6 +115,7 @@ export default {
       if (!this.$store.getters.isLoading) {
         this.currentTeamName = this.$store.state.data.participating_clubs[this.id];
         this.currentTeamCode = this.$store.state.data.teams_codes[this.id];
+        console.log(this.currentTeamCode);
         this.fixtures = this.$store.state.data.season_fixtures;
         this.getMoreInfo();
         this.getMoreInfoFollowing();
@@ -130,7 +137,7 @@ export default {
         }
       });
       console.log(this.fixturesWithCurrentTeam);
-      console.log(this.dataForFixtureComponent);
+      // console.log(this.dataForFixtureComponent);
     },
     getLink(itemIn) {
       return `/fixtures-matchday/${itemIn[0]}/fixture/${itemIn[1]}`;
