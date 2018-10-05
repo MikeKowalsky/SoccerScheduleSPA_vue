@@ -16,8 +16,10 @@
           <router-link :to="{ path: getLink(item) }"
             v-for="(item, index) in dataForFixtureComponent" :key="index">
             <div class="row">
-              <div class="col-auto px-2 d-flex align-items-center">
+              <div
+                class="col-auto px-2 d-flex flex-column justify-content-center align-items-center">
                 <p class="m-0">Round {{ item[0] + 1}}</p>
+                <p class="m-0">{{ fixturesWithCurrentTeam[index].date}}</p>
               </div>
               <div
                 class="col px-1 d-flex flex-column justify-content-center align-items-center">
@@ -48,7 +50,7 @@
               </div>
               <div
                 class="col-auto px-1 d-flex align-items-center">
-                <p class="m-0">{{ fixturesWithCurrentTeam[index].date}}</p>
+                <p class="m-0">{{ fixturesWithCurrentTeamFollowing[index].date}}</p>
               </div>
               <div
                 class="col px-1 d-flex flex-column justify-content-center align-items-center">
@@ -128,7 +130,7 @@ export default {
         }
       });
       console.log(this.fixturesWithCurrentTeam);
-    //   console.log(this.dataForFixtureComponent);
+      console.log(this.dataForFixtureComponent);
     },
     getLink(itemIn) {
       return `/fixtures-matchday/${itemIn[0]}/fixture/${itemIn[1]}`;
@@ -180,7 +182,7 @@ export default {
     color: #2E2E2E;
   }
   .dash{
-    line-height: 10px;
+    line-height: 0.5em;
   }
   .bold{
       font-weight: bold;
